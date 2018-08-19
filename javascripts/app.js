@@ -3,7 +3,9 @@
 var rover = {
   direction: [], 
 };
-// ======================
+// =====================
+
+// TURN FUNCTION
 
   /*If it's N, it turns to W
   If it's W, it turns to S
