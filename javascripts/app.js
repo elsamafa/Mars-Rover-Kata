@@ -88,3 +88,49 @@ function moveForward(){
   };
 
 }
+
+//MOVE BACKWARD FUNTION
+
+function moveBackward(){
+  console.log("moveBackward was called");
+
+  switch(rover.direction) {
+    case rover.direction = "W": rover.x++;
+
+    break;
+
+    case rover.direction = "E": rover.x--;
+
+    break;
+
+
+    case rover.direction = "N": rover.y++;
+
+    break;
+
+    case rover.direction = "S": rover.y--;
+  };
+
+}
+
+//COMMANDS FUNCTION
+function giveCommands(){
+  console.log("giveCommands was called");
+
+  var commands = "";
+
+  for (var i = 0; i<= commands.length; i++) {
+    var instruction = commands[i];
+    switch(instruction) {
+      case instruction ==="f": moveForward(rover);
+
+      break;
+
+      case instruction === "l": turnLeft(rover);
+
+      break;
+
+      case instruction === "r": turnRight(rover);
+    }
+  }
+}
