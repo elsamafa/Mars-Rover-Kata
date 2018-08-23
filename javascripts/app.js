@@ -3,8 +3,8 @@
 var rover = {
   direction: "N", 
   x: 0,
-  y: 0
-};
+  y: 0,
+}
 // =====================
 
 // TURN FUNCTION
@@ -86,7 +86,6 @@ function moveForward(){
 
     case rover.direction = "S": rover.y++;
   };
-
 }
 
 //MOVE BACKWARD FUNTION
@@ -114,23 +113,32 @@ function moveBackward(){
 }
 
 //COMMANDS FUNCTION
-function giveCommands(){
-  console.log("giveCommands was called");
-
-  var commands = "";
-
+/*function giveCommands(commands){
   for (var i = 0; i<= commands.length; i++) {
-    var instruction = commands[i];
-    switch(instruction) {
-      case instruction ==="f": moveForward(rover);
+    switch(commands[i]) {
+      case commands[i] ==="f": moveForward(rover);
 
       break;
 
-      case instruction === "l": turnLeft(rover);
+      case commands[i] === "l": turnLeft(rover);
 
       break;
 
-      case instruction === "r": turnRight(rover);
+      case commands[i] === "r": turnRight(rover);
+
+      break;
+    }
+  }
+}*/
+
+function giveCommands(commands){
+  for (var i = 0; i<= commands.length; i++) {
+    if(commands[i]==='f'){
+      moveForward(rover)
+    } else if (commands[i]==='l') {
+      turnLeft(rover)
+    } else if (commands[i]==='r') {
+      turnRight(rover)
     }
   }
 }
