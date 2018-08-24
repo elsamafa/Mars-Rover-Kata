@@ -4,6 +4,7 @@ var rover = {
   direction: "N", 
   x: 0,
   y: 0,
+  travelLog: [[0,0]]
 }
 // =====================
 
@@ -131,14 +132,24 @@ function moveBackward(){
   }
 }*/
 
+
+
+
 function giveCommands(commands){
   for (var i = 0; i<= commands.length; i++) {
     if(commands[i]==='f'){
-      moveForward(rover)
+      moveForward(rover);
+      rover["travelLog"].push([rover.x,rover.y]);
+    } else if(commands[i]==='b'){
+      moveForward(rover);
+      rover["travelLog"].push([rover.x,rover.y]);
     } else if (commands[i]==='l') {
       turnLeft(rover)
     } else if (commands[i]==='r') {
       turnRight(rover)
     }
   }
+  console.log(rover.travelLog);
 }
+
+
