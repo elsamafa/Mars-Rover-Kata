@@ -4,8 +4,35 @@ var rover = {
   direction: "N", 
   x: 0,
   y: 0,
-  travelLog: [[0,0]]
+  travelLog: [[0,0]],
+  position: grid[0][0]
 }
+var roverTwo = {
+  direction: "N", 
+  x: 9,
+  y: 9,
+  travelLog: [[9,9]],
+  position: grid[9][9]
+}
+
+var rock = {
+  x: 5,
+  y: 3,
+  position: [grid[5][2], grid[1][3], grid[7][7]]
+}
+var grid = [
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, "rock", null, null, null, null],
+  [null, "rock", null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, "rock", null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+];
+
 // =====================
 
 // TURN FUNCTION
@@ -36,6 +63,25 @@ function turnLeft(){
   
     default: rover.direction = "N";
   }
+  switch(roverTwo.direction) {
+    case roverTwo.direction = "N": roverTwo.direction = "W";
+    
+    break;
+  
+    case roverTwo.direction = "W": roverTwo.direction = "S";
+    
+    break;
+  
+    case roverTwo.direction = "S": roverTwo.direction = "E";
+    
+    break;
+  
+    case roverTwo.direction = "S": roverTwo.direction = "E";
+      
+    break;
+  
+    default: roverTwo.direction = "N";
+  }
 }
 
   /*If it's N, it turns to E
@@ -64,6 +110,25 @@ function turnRight(){
   
     default: rover.direction = "N";
   }
+  switch(roverTwo.direction) {
+    case roverTwo.direction = "N": roverTwo.direction = "E";
+    
+    break;
+  
+    case roverTwo.direction = "E": roverTwo.direction = "S";
+    
+    break;
+  
+    case roverTwo.direction = "S": roverTwo.direction = "W";
+    
+    break;
+  
+    case roverTwo.direction = "W": roverTwo.direction = "N";
+      
+    break;
+  
+    default: roverTwo.direction = "N";
+  }
 }
 
 //MOVING FORWARD FUNCTION
@@ -72,20 +137,79 @@ function moveForward(){
   console.log("moveForward was called");
 
   switch(rover.direction) {
-    case rover.direction = "W": rover.x--;
+    case rover.direction = "W": 
+    if (rover.x <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.x--;
+    }
+          
+    break;
+
+    case rover.direction = "E": 
+    if (rover.x >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.x++;
+    }
 
     break;
 
-    case rover.direction = "E": rover.x++;
+
+    case rover.direction = "N":
+      if (rover.y <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.y--;
+    } 
+
+    break;
+
+    case rover.direction = "S":
+    if (rover.y >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.y++;
+    }
+  
+  };
+
+  switch(roverTwo.direction) {
+    case roverTwo.direction = "W": 
+    if (roverTwo.x <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      roverTwo.x--;
+    }
+          
+    break;
+
+    case roverTwo.direction = "E": 
+    if (roverTwo.x >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      roverTwo.x++;
+    }
 
     break;
 
 
-    case rover.direction = "N": rover.y--;
+    case roverTwo.direction = "N":
+      if (roverTwo.y <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      roverTwo.y--;
+    } 
 
     break;
 
-    case rover.direction = "S": rover.y++;
+    case roverTwo.direction = "S":
+    if (roverTwo.y >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      roverTwo.y++;
+    }
+  
   };
 }
 
@@ -94,26 +218,81 @@ function moveForward(){
 function moveBackward(){
   console.log("moveBackward was called");
 
-  switch(rover.direction) {
-    case rover.direction = "W": rover.x++;
+  switch(rover.direction,rover.x,rover.y) {
+    case rover.direction = "W": 
+    if (rover.x >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.x++;
+    }
 
     break;
 
-    case rover.direction = "E": rover.x--;
+    case rover.direction = "E":
+    if (rover.x <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.x--;
+    }
 
     break;
 
-
-    case rover.direction = "N": rover.y++;
+    case rover.direction = "N": 
+    if (rover.y >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.y++;
+    }
 
     break;
 
-    case rover.direction = "S": rover.y--;
+    case rover.direction = "S": 
+    if (rover.x <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.y--;
+    } 
   };
+  
+  switch(rover.direction,rover.x,rover.y) {
+    case rover.direction = "W": 
+    if (rover.x >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.x++;
+    }
 
+    break;
+
+    case rover.direction = "E":
+    if (rover.x <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.x--;
+    }
+
+    break;
+
+    case rover.direction = "N": 
+    if (rover.y >=9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.y++;
+    }
+
+    break;
+
+    case rover.direction = "S": 
+    if (rover.x <=-9){  
+      console.log("Watch out! Rover is about to fall out");
+    } else {
+      rover.y--;
+    } 
+  };
 }
 
 //COMMANDS FUNCTION
+
 /*function giveCommands(commands){
   for (var i = 0; i<= commands.length; i++) {
     switch(commands[i]) {
@@ -133,23 +312,31 @@ function moveBackward(){
 }*/
 
 
-
-
 function giveCommands(commands){
+  commands===['f','b','l','r']
   for (var i = 0; i<= commands.length; i++) {
     if(commands[i]==='f'){
       moveForward(rover);
       rover["travelLog"].push([rover.x,rover.y]);
     } else if(commands[i]==='b'){
-      moveForward(rover);
+      moveBackward(rover);
       rover["travelLog"].push([rover.x,rover.y]);
     } else if (commands[i]==='l') {
-      turnLeft(rover)
+      turnLeft(rover);
     } else if (commands[i]==='r') {
       turnRight(rover)
+    } else {
+      continue;
     }
   }
   console.log(rover.travelLog);
 }
 
+//AVOID THE ROVER FROM FALLING OUT
 
+function  fallingOut () {
+  switch (rover.x,rover.y)  {
+    case (rover.x || rover.y >=10) : break;
+    case (rover.x || rover.y <=-1)  : break;
+  } 
+}
