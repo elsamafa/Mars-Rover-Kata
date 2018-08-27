@@ -166,6 +166,7 @@ function moveForward(){
 
   };
 
+  //MOVE FORWARD FOR ROVER TWO
 
   /*switch(roverTwo.direction) {
     case roverTwo.direction = "W": 
@@ -204,7 +205,7 @@ function moveForward(){
   };*/
 }
 
-//MOVE BACKWARD FUNTION
+//MOVE BACKWARD FUNCTION
 
 function moveBackward(){
   console.log("moveBackward was called");
@@ -245,6 +246,7 @@ function moveBackward(){
     
   };
 
+//MOVE BACKWARD FUNCTION FOR ROVER TWO
 
  /* switch(roverTwo.direction) {
     case roverTwo.direction = "W": 
@@ -282,24 +284,6 @@ function moveBackward(){
 
 //COMMANDS FUNCTION
 
-/*function giveCommands(commands){
-  for (var i = 0; i<= commands.length; i++) {
-    switch(commands[i]) {
-      case commands[i] ==="f": moveForward(rover);
-
-      break;
-
-      case commands[i] === "l": turnLeft(rover);
-
-      break;
-
-      case commands[i] === "r": turnRight(rover);
-
-      break;
-    }
-  }
-}*/
-
 
 function giveCommands(commands){
   //whichRover === [rover,roverTwo]
@@ -318,11 +302,15 @@ function giveCommands(commands){
     }
   }
   console.log(rover.travelLog);
-
+}
   //SWAP BETWEEN COMMANDS ROVER 1 AND ROVER 2
+//Al incorporar este código a la función giveCommands, con un condicional switch, con rover Two, no se ejecutan ninguno de los comandos
 
-
-/*  switch(whichRover){ 
+ 
+/*function giveCommands(commands, whichRover){
+  whichRover === [rover,roverTwo]
+  commands===['f','b','l','r'] 
+switch(whichRover){ 
     case whichRover = rover:
     for (var i = 0; i<= commands.length; i++) {
       if(commands[i]==='f'){
@@ -355,5 +343,25 @@ function giveCommands(commands){
     }
     console.log(roverTwo.travelLog);
     break;
-  }*/
+  }
 }
+*/
+
+//COMMAND FUNCTION WITH SWITCH
+/*function giveCommands(commands){
+  for (var i = 0; i<= commands.length; i++) {
+    switch(commands[i]) {
+      case commands[i] ==="f": moveForward(rover);
+
+      break;
+
+      case commands[i] === "l": turnLeft(rover);
+
+      break;
+
+      case commands[i] === "r": turnRight(rover);
+
+      break;
+    }
+  }
+}*/
